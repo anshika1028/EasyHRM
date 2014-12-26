@@ -21,13 +21,14 @@ Mark Attendance: This page will contain a text area where user can enter comment
 
 View Report: This page will display the login/logout time of the logged in employee.Report can be filtered by Date.
 
-Sign Up
-Sign In
-Reset password
-shows passwords secured with bcrypt
-Shows secure workflow to reset password
-Shows secure workflow to reset email
-Change email from Settings
+Some More Modules:
+- Sign Up
+- Sign In
+- Reset password
+- shows passwords secured with bcrypt
+- Shows secure workflow to reset password
+- Shows secure workflow to reset email
+- Change email from Settings
 
 Technology used:
 - Database: postgres sql
