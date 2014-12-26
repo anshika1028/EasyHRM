@@ -30,11 +30,11 @@ Shows secure workflow to reset email
 Change email from Settings
 
 Technology used:
-Database: postgres sql
-Framework: play 2.3.0
-Language: JAVA,Scala
-Using Typesafe Plugin Mailer : https://github.com/typesafehub/play-plugins/tree/master/mailer
-Using Twitter Bootstrap 3 : http://twitter.github.com/bootstrap/
-Using Font-Awesome 4 : http://fortawesome.github.io/Font-Awesome/icons/
-Using Less and CoffeeScript
-Using a password strength checker
+- Database: postgres sql
+- Framework: play 2.3.0
+- Language: JAVA,Scala
+- Using Typesafe Plugin Mailer : https://github.com/typesafehub/play-plugins/tree/master/mailer
+- Using Twitter Bootstrap 3 : http://twitter.github.com/bootstrap/
+- Using Font-Awesome 4 : http://fortawesome.github.io/Font-Awesome/icons/
+- Using Less and CoffeeScript
+- Using a password strength checker
