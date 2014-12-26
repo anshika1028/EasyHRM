@@ -1,0 +1,31 @@
+@(punchForm: Form[controllers.Attendance.PunchForm])
+
+@import helper._
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) }
+
+<h3>Punch in </h3>
+
+@form(routes.Attendance.punchIn()) {
+
+<fieldset>
+
+    Date&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @punchForm("date").value
+    <br>   Time&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @punchForm("time").value
+
+    @inputText(
+    punchForm("note"),
+    'placeholder -> Messages("notes"),
+    '_label -> "Note",
+    'class -> "form-control"
+    )
+    <input type="hidden" name="userid" value="@punchForm("userid").value">
+
+
+</fieldset>
+
+<div class="form-actions">
+
+    <input type="submit" class="btn btn-primary" value="@Messages("date_punch_in")">
+</div>
+}
+

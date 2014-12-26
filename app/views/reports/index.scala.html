@@ -1,0 +1,22 @@
+@(users: Users,reportForm:Form[controllers.Reports.ReportForm],list:List[models.Records])
+
+
+@import helper._
+
+@main(users) {
+@wflash()
+<h3>Report</h3>
+<div class="span12">
+    <div class="well">
+        @report(reportForm)
+
+
+    </div>
+</div>
+
+    @if(list!=null){
+
+@viewReport(list)
+    }
+
+}

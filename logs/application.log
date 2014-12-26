@@ -1,0 +1,24 @@
+2014-12-26 12:26:05,452 - [INFO] - from play in pool-6-thread-2 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9080
+
+2014-12-26 12:27:12,017 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:postgresql://localhost:5432/play
+
+2014-12-26 12:27:22,916 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-12-26 12:27:31,311 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+expired after minuites>>>15
+
+2014-12-26 12:27:37,878 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:postgresql://localhost:5432/play
+
+2014-12-26 12:27:37,968 - [WARN] - from com.avaje.ebean.Ebean in play-internal-execution-context-1 
+Existing EbeanServer [default] is being replaced?
+
+2014-12-26 12:27:37,987 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-12-26 12:27:38,076 - [DEBUG] - from application in play-akka.actor.default-dispatcher-5 
+username ...................null
+

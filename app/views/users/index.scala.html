@@ -1,0 +1,28 @@
+
+@(users: Users,json:List[models.Users])
+
+
+@import helper._
+
+@main(users) {
+@wflash()
+<div class="span12">
+  <div class="well">
+<table >
+  <tr >
+    <td><b> username</b> </td>
+    <td> <b> status </b></td>
+    <td> <b>Action</b> </td>
+  </tr>
+@for(p <- json) {
+  <tr>
+    <td>@p.fullname </td>
+    <td>@if(p.status){ Active}else{ Inactive}</td>
+    <td>
+    <a  href="/manageusers/@p.username">@if(p.status){ Inctivate}else{ Activate}</a>
+
+    </td></tr>
+}
+</table>
+    </div></div>
+}

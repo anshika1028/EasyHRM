@@ -1,0 +1,48 @@
+@(reportForm:Form[controllers.Reports.ReportForm])
+
+@import helper._
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) }
+
+
+
+@form(routes.Reports.viewReport()) {
+
+<fieldset>
+
+
+<table><tr>
+    <td>
+        @inputText(
+        reportForm("date1"),
+        '_label -> "Date1",
+        'type -> "date",
+        'class -> "form-control"
+
+        )
+    </td>
+    <td>
+        @inputText(
+        reportForm("date2"),
+
+        '_label -> "Date2",
+        'type -> "date",
+        'class -> "form-control"
+
+        )
+    </td>
+    <td>
+
+
+            <input type="submit" class="btn btn-primary" value="Generate">
+
+    </td>
+</tr></table>
+
+
+
+
+</fieldset>
+
+
+}
+

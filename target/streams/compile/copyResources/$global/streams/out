@@ -1,0 +1,11 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/home/anshika/SaralHRM/conf/messages.en,/home/anshika/SaralHRM/target/scala-2.10/classes/messages.en)[0m
+[0m[[0mdebug[0m] [0m	(/home/anshika/SaralHRM/conf/evolutions,/home/anshika/SaralHRM/target/scala-2.10/classes/evolutions)[0m
+[0m[[0mdebug[0m] [0m	(/home/anshika/SaralHRM/conf/routes,/home/anshika/SaralHRM/target/scala-2.10/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/home/anshika/SaralHRM/conf/play.plugins,/home/anshika/SaralHRM/target/scala-2.10/classes/play.plugins)[0m
+[0m[[0mdebug[0m] [0m	(/home/anshika/SaralHRM/conf/cloudbees.conf,/home/anshika/SaralHRM/target/scala-2.10/classes/cloudbees.conf)[0m
+[0m[[0mdebug[0m] [0m	(/home/anshika/SaralHRM/conf/mail.conf,/home/anshika/SaralHRM/target/scala-2.10/classes/mail.conf)[0m
+[0m[[0mdebug[0m] [0m	(/home/anshika/SaralHRM/conf/messages.fr,/home/anshika/SaralHRM/target/scala-2.10/classes/messages.fr)[0m
+[0m[[0mdebug[0m] [0m	(/home/anshika/SaralHRM/conf/application.conf,/home/anshika/SaralHRM/target/scala-2.10/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/home/anshika/SaralHRM/conf/evolutions/default,/home/anshika/SaralHRM/target/scala-2.10/classes/evolutions/default)[0m
+[0m[[0mdebug[0m] [0m	(/home/anshika/SaralHRM/conf/evolutions/default/1.sql,/home/anshika/SaralHRM/target/scala-2.10/classes/evolutions/default/1.sql)[0m

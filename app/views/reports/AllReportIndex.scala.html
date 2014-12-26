@@ -1,0 +1,21 @@
+@(user: Users,reportForm:Form[controllers.Reports.UsersReportForm],usersname:List[models.Users],usersdetails:List[models.Users])
+
+
+@import helper._
+
+@main(user) {
+@wflash()
+<h3>Report</h3>
+<div class="span12">
+    <div class="well">
+        @Allreport(reportForm,usersname)
+
+
+    </div>
+</div>
+
+    @if(usersdetails!=null){
+
+@AllviewReport(usersdetails)
+    }
+}

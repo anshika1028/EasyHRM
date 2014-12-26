@@ -1,0 +1,68 @@
+@(list:List[models.Users])
+
+@import helper._
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) }
+
+
+
+@sum(a:Long,b:Long) = {
+@((a - b)/60000 % 60)
+
+}
+@dum(a:Long,b:Long) = {
+@((a - b)/3600000 % 60)
+
+}
+
+@if(list.isEmpty()){
+
+<div>No record found.</div>
+
+}else{
+<table border="2"><tr>
+    <td><h3>User Name</h3></td>
+    <td><h3>In Date</h3></td>
+    <td><h3>In Time</h3></td>
+    <td><h3>In Note</h3></td>
+    <td><h3>Out Date</h3> </td>
+    <td><h3>Out Time</h3> </td>
+    <td><h3>Out Note</h3></td>
+    <td><h3>Total Time</h3></td>
+</tr>
+
+
+    @for(p <- list) {
+    <tr>
+
+
+    @for(r <- p.records) {
+
+
+        @if(r.date_punch_out!=null){
+        <td>@p.fullname</td>
+        <td>@("%1$tY-%1$tm-%1$td".format(r.date_punch_in.getTime()))</td>
+        <td>@("%1$tH:%1$tM".format(r.date_punch_in.getTime()))</td>
+        <td>@r.note1</td>
+        <td>@("%1$tY-%1$tm-%1$td".format(r.date_punch_out.getTime()))</td>
+        <td>@("%1$tH:%1$tM".format(r.date_punch_out.getTime()))</td>
+
+        <td>@r.note2</td>
+        <td > @dum( r.date_punch_out.getTime(),r.date_punch_in.getTime()):@sum( r.date_punch_out.getTime(),r.date_punch_in.getTime()) </td>
+
+    }
+    </tr>
+
+    }}
+
+
+
+</table>
+}
+
+
+
+
+
+
+
+

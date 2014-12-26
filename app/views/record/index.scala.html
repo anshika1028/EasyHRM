@@ -1,0 +1,22 @@
+@(users: Users, punchForm: Form[controllers.Attendance.PunchForm], record: Records)
+
+
+@import helper._
+
+@main(users) {
+@wflash()
+
+<div class="span12">
+   <div class="well">
+
+@if(punchForm("date_punch_in").value==null){
+    @punchin(punchForm)
+   }else{
+      @punchout(punchForm)
+       }
+
+
+   </div>
+</div>
+
+}

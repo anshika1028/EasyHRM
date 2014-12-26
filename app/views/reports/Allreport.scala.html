@@ -1,0 +1,65 @@
+@(reportForm:Form[controllers.Reports.UsersReportForm],list:List[models.Users])
+
+@import helper._
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) }
+
+
+
+@form(routes.Reports.viewAllReport()) {
+
+<fieldset>
+
+
+<table><tr>
+    <td>
+
+        <select  name="user" class="form-control">
+
+            <option value="0">All</option>
+
+            @for(u <- list) {
+
+
+            <option value="@u.id" @if(u.id.toString().equals(reportForm("user").value.toString())){
+
+                    selected="selected"
+                    } >
+                @u.fullname</option>
+}
+        </select>
+    </td>
+    <td>
+        @inputText(
+        reportForm("date1"),
+        '_label -> "Date1",
+        'type -> "date",
+        'class -> "form-control"
+
+        )
+    </td>
+    <td>
+        @inputText(
+        reportForm("date2"),
+
+        '_label -> "Date2",
+        'type -> "date",
+        'class -> "form-control"
+
+        )
+    </td>
+    <td>
+
+
+            <input type="submit" class="btn btn-primary" value="Generate">
+
+    </td>
+</tr></table>
+
+
+
+
+</fieldset>
+
+
+}
+

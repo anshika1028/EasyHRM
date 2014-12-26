@@ -1,0 +1,900 @@
+2014-12-12 16:11:57,892 - [INFO] - from play in pool-4-thread-4 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2014-12-12 16:13:09,184 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:postgresql://localhost:5432/play
+
+2014-12-12 16:13:10,634 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-12-12 16:13:13,227 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:postgresql://localhost:5432/play
+
+2014-12-12 16:13:13,304 - [WARN] - from com.avaje.ebean.Ebean in play-internal-execution-context-1 
+Existing EbeanServer [default] is being replaced?
+
+2014-12-12 16:13:13,316 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-12-12 16:16:18,462 - [ERROR] - from application in New I/O worker #3 
+
+
+! Internal server error, for (POST) [/signup] ->
+
+java.lang.VerifyError: Stack map does not match the one at exception handler 246
+Exception Details:
+  Location:
+    controllers/account/Signup.save()Lplay/mvc/Result; @246: astore_3
+  Reason:
+    Type 'java/lang/Boolean' (current frame, locals[5]) is not assignable to 'java/lang/String' (stack map, locals[5])
+  Current Frame:
+    bci: @172
+    flags: { }
+    locals: { 'play/data/Form', 'controllers/Application$Register', 'play/mvc/Result', 'models/Users', 'models/Users', 'java/lang/Boolean' }
+    stack: { 'org/apache/commons/mail/EmailException' }
+  Stackmap Frame:
+    bci: @246
+    flags: { }
+    locals: { 'play/data/Form', 'controllers/Application$Register', 'play/mvc/Result', top, 'java/lang/Object', 'java/lang/String' }
+    stack: { 'org/apache/commons/mail/EmailException' }
+  Bytecode:
+    0000000: 1300 02b8 0003 03bd 0006 b600 074b 2ab6
+    0000010: 0008 9900 0b2a b800 04b8 0009 b02a b600
+    0000020: 0ac0 0002 4c2a 2b3a 0401 3a05 1904 b601
+    0000030: 313a 0519 052b 3a04 013a 0519 04b6 0134
+    0000040: 3a05 1905 b800 0d4d 2cc6 0005 2cb0 bb00
+    0000050: 0e59 b700 0f4e 2d2b 3a04 013a 0519 04b6
+    0000060: 0134 3a05 1905 3a05 3a04 1904 1905 b601
+    0000070: 372d 2b3a 0401 3a05 1904 b601 313a 0519
+    0000080: 053a 053a 0419 0419 05b6 013a 2d2b 3a04
+    0000090: 013a 0519 04b6 013d 3a05 1905 3a05 3a04
+    00000a0: 1904 1905 b601 402d 03b8 0014 3a05 3a04
+    00000b0: 1904 1905 b601 442d 2b3a 0401 3a05 1904
+    00000c0: b601 473a 0519 05b8 0017 3a05 3a04 1904
+    00000d0: 1905 b601 4a2d b800 19b6 001a 3a05 3a04
+    00000e0: 1904 1905 b601 4d2d b600 1c2d b800 1db8
+    00000f0: 001e b800 05b0 4e12 202d b800 2112 2212
+    0000100: 2303 bd00 24b8 0025 b800 26a7 0018 4e12
+    0000110: 282d b800 2912 2212 2a03 bd00 24b8 0025
+    0000120: b800 262a b800 04b8 0009 b0            
+  Exception Handler Table:
+    bci [78, 245] => handler: 246
+    bci [78, 245] => handler: 270
+  Stackmap Table:
+    append_frame(@29,Object[#148])
+    full_frame(@78,{Object[#148],Object[#113],Object[#114],Top,Object[#113],Object[#6]},{})
+    full_frame(@246,{Object[#148],Object[#113],Object[#114],Top,Object[#36],Object[#6]},{Object[#115]})
+    same_locals_1_stack_item_frame(@270,Object[#116])
+    full_frame(@291,{Object[#148],Object[#113],Object[#114],Object[#116],Object[#36],Object[#6]},{})
+
+	at java.lang.Class.getDeclaredMethods0(Native Method) ~[na:1.7.0_65]
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2615) ~[na:1.7.0_65]
+	at java.lang.Class.getMethod0(Class.java:2856) ~[na:1.7.0_65]
+	at java.lang.Class.getMethod(Class.java:1668) ~[na:1.7.0_65]
+	at org.apache.commons.lang3.reflect.MethodUtils.getMatchingAccessibleMethod(MethodUtils.java:511) ~[commons-lang3-3.1.jar:3.1]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15.<init>(Router.scala:248) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory.createInvoker(Router.scala:244) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.Router$Routes$class.createInvoker(Router.scala:496) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at Routes$.createInvoker(routes_routing.scala:17) ~[na:na]
+	at Routes$.Routes$$controllers_account_Signup_save10_invoker$lzycompute(routes_routing.scala:107) ~[na:na]
+	at Routes$.Routes$$controllers_account_Signup_save10_invoker(routes_routing.scala:107) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$11.apply(routes_routing.scala:251) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$11.apply(routes_routing.scala:251) ~[na:na]
+	at play.core.Router$Routes$class.call(Router.scala:326) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at Routes$.call(routes_routing.scala:17) ~[na:na]
+	at Routes$$anonfun$routes$1.applyOrElse(routes_routing.scala:250) ~[na:na]
+	at Routes$$anonfun$routes$1.applyOrElse(routes_routing.scala:166) ~[na:na]
+	at scala.PartialFunction$Lifted.apply(PartialFunction.scala:218) ~[scala-library.jar:na]
+	at scala.PartialFunction$Lifted.apply(PartialFunction.scala:214) ~[scala-library.jar:na]
+	at play.core.Router$Routes$class.handlerFor(Router.scala:454) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at Routes$.handlerFor(routes_routing.scala:17) ~[na:na]
+	at play.api.GlobalSettings$$anonfun$onRouteRequest$1$$anonfun$apply$1.apply(GlobalSettings.scala:128) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.GlobalSettings$$anonfun$onRouteRequest$1$$anonfun$apply$1.apply(GlobalSettings.scala:127) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.Option.flatMap(Option.scala:170) ~[scala-library.jar:na]
+	at play.api.GlobalSettings$$anonfun$onRouteRequest$1.apply(GlobalSettings.scala:126) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.GlobalSettings$$anonfun$onRouteRequest$1.apply(GlobalSettings.scala:126) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.Option.flatMap(Option.scala:170) ~[scala-library.jar:na]
+	at play.api.GlobalSettings$class.onRouteRequest(GlobalSettings.scala:126) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.DefaultGlobal$.onRouteRequest(GlobalSettings.scala:206) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.GlobalSettings$class.onRequestReceived(GlobalSettings.scala:81) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.DefaultGlobal$.onRequestReceived(GlobalSettings.scala:206) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.Server$$anonfun$sendHandler$1$1.apply(Server.scala:53) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.Server$$anonfun$sendHandler$1$1.apply(Server.scala:52) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.util.Success$$anonfun$map$1.apply(Try.scala:206) ~[scala-library.jar:na]
+	at scala.util.Try$.apply(Try.scala:161) ~[scala-library.jar:na]
+	at scala.util.Success.map(Try.scala:206) ~[scala-library.jar:na]
+	at play.core.server.Server$class.sendHandler$1(Server.scala:52) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:85) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:84) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
+	at play.core.server.Server$class.getHandlerFor(Server.scala:84) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.NettyServer.getHandlerFor(NettyServer.scala:37) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$10.apply(PlayDefaultUpstreamHandler.scala:157) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$10.apply(PlayDefaultUpstreamHandler.scala:157) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.util.Either.fold(Either.scala:98) [scala-library.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.messageReceived(PlayDefaultUpstreamHandler.scala:142) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:791) [netty-3.9.1.Final.jar:na]
+	at com.typesafe.netty.http.pipelining.HttpPipeliningHandler.messageReceived(HttpPipeliningHandler.java:62) [netty-http-pipelining-1.1.2.jar:na]
+	at org.jboss.netty.channel.SimpleChannelHandler.handleUpstream(SimpleChannelHandler.java:88) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:791) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:108) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:791) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:459) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:536) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:435) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:559) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:88) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:318) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty-3.9.1.Final.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_65]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_65]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_65]
+
+2014-12-12 16:16:18,486 - [ERROR] - from application in New I/O worker #3 
+Error while rendering default error page
+scala.MatchError: java.lang.VerifyError: Stack map does not match the one at exception handler 246
+Exception Details:
+  Location:
+    controllers/account/Signup.save()Lplay/mvc/Result; @246: astore_3
+  Reason:
+    Type 'java/lang/Boolean' (current frame, locals[5]) is not assignable to 'java/lang/String' (stack map, locals[5])
+  Current Frame:
+    bci: @172
+    flags: { }
+    locals: { 'play/data/Form', 'controllers/Application$Register', 'play/mvc/Result', 'models/Users', 'models/Users', 'java/lang/Boolean' }
+    stack: { 'org/apache/commons/mail/EmailException' }
+  Stackmap Frame:
+    bci: @246
+    flags: { }
+    locals: { 'play/data/Form', 'controllers/Application$Register', 'play/mvc/Result', top, 'java/lang/Object', 'java/lang/String' }
+    stack: { 'org/apache/commons/mail/EmailException' }
+  Bytecode:
+    0000000: 1300 02b8 0003 03bd 0006 b600 074b 2ab6
+    0000010: 0008 9900 0b2a b800 04b8 0009 b02a b600
+    0000020: 0ac0 0002 4c2a 2b3a 0401 3a05 1904 b601
+    0000030: 313a 0519 052b 3a04 013a 0519 04b6 0134
+    0000040: 3a05 1905 b800 0d4d 2cc6 0005 2cb0 bb00
+    0000050: 0e59 b700 0f4e 2d2b 3a04 013a 0519 04b6
+    0000060: 0134 3a05 1905 3a05 3a04 1904 1905 b601
+    0000070: 372d 2b3a 0401 3a05 1904 b601 313a 0519
+    0000080: 053a 053a 0419 0419 05b6 013a 2d2b 3a04
+    0000090: 013a 0519 04b6 013d 3a05 1905 3a05 3a04
+    00000a0: 1904 1905 b601 402d 03b8 0014 3a05 3a04
+    00000b0: 1904 1905 b601 442d 2b3a 0401 3a05 1904
+    00000c0: b601 473a 0519 05b8 0017 3a05 3a04 1904
+    00000d0: 1905 b601 4a2d b800 19b6 001a 3a05 3a04
+    00000e0: 1904 1905 b601 4d2d b600 1c2d b800 1db8
+    00000f0: 001e b800 05b0 4e12 202d b800 2112 2212
+    0000100: 2303 bd00 24b8 0025 b800 26a7 0018 4e12
+    0000110: 282d b800 2912 2212 2a03 bd00 24b8 0025
+    0000120: b800 262a b800 04b8 0009 b0            
+  Exception Handler Table:
+    bci [78, 245] => handler: 246
+    bci [78, 245] => handler: 270
+  Stackmap Table:
+    append_frame(@29,Object[#148])
+    full_frame(@78,{Object[#148],Object[#113],Object[#114],Top,Object[#113],Object[#6]},{})
+    full_frame(@246,{Object[#148],Object[#113],Object[#114],Top,Object[#36],Object[#6]},{Object[#115]})
+    same_locals_1_stack_item_frame(@270,Object[#116])
+    full_frame(@291,{Object[#148],Object[#113],Object[#114],Object[#116],Object[#36],Object[#6]},{})
+ (of class java.lang.VerifyError)
+	at play.api.GlobalSettings$class.onError(GlobalSettings.scala:148) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.DefaultGlobal$.onError(GlobalSettings.scala:206) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.Server$class.logExceptionAndGetResult$1(Server.scala:76) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:86) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:84) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
+	at play.core.server.Server$class.getHandlerFor(Server.scala:84) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.NettyServer.getHandlerFor(NettyServer.scala:37) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$10.apply(PlayDefaultUpstreamHandler.scala:157) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$10.apply(PlayDefaultUpstreamHandler.scala:157) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.util.Either.fold(Either.scala:98) [scala-library.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.messageReceived(PlayDefaultUpstreamHandler.scala:142) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:791) [netty-3.9.1.Final.jar:na]
+	at com.typesafe.netty.http.pipelining.HttpPipeliningHandler.messageReceived(HttpPipeliningHandler.java:62) [netty-http-pipelining-1.1.2.jar:na]
+	at org.jboss.netty.channel.SimpleChannelHandler.handleUpstream(SimpleChannelHandler.java:88) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:791) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:108) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:791) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:459) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:536) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:435) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:559) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:88) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:318) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty-3.9.1.Final.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_65]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_65]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_65]
+
+2014-12-12 16:19:08,796 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:postgresql://localhost:5432/play
+
+2014-12-12 16:19:08,941 - [WARN] - from com.avaje.ebean.Ebean in play-internal-execution-context-1 
+Existing EbeanServer [default] is being replaced?
+
+2014-12-12 16:19:08,958 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-12-12 16:19:10,498 - [INFO] - from play in play-akka.actor.default-dispatcher-10 
+Starting application default Akka system.
+
+2014-12-12 16:19:11,521 - [DEBUG] - from application in application-akka.actor.default-dispatcher-3 
+Mail.sendMail: Mail will be sent to anshika.gupta@laitkor.com
+
+2014-12-12 16:19:19,921 - [DEBUG] - from application in application-akka.actor.default-dispatcher-3 
+Mail sent - SMTP:smtp.gmail.com:587 SSL:true user:saralhiring2@gmail.com password:m2n1shlko
+
+2014-12-12 16:19:48,475 - [WARN] - from play in play-akka.actor.default-dispatcher-17 
+You are using status code '200' with flashing, which should only be used with a redirect status!
+
+2014-12-12 16:19:49,417 - [DEBUG] - from application in application-akka.actor.default-dispatcher-4 
+Mail.sendMail: Mail will be sent to anshika.gupta@laitkor.com
+
+2014-12-12 16:19:56,009 - [DEBUG] - from application in application-akka.actor.default-dispatcher-4 
+Mail sent - SMTP:smtp.gmail.com:587 SSL:true user:saralhiring2@gmail.com password:m2n1shlko
+
+2014-12-12 16:22:18,953 - [INFO] - from play in play-internal-execution-context-1 
+Shutdown application default Akka system.
+
+2014-12-12 16:22:19,297 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:postgresql://localhost:5432/play
+
+2014-12-12 16:22:19,330 - [WARN] - from com.avaje.ebean.Ebean in play-internal-execution-context-1 
+Existing EbeanServer [default] is being replaced?
+
+2014-12-12 16:22:19,343 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-12-12 16:22:20,024 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:postgresql://localhost:5432/play
+
+2014-12-12 16:22:20,117 - [WARN] - from com.avaje.ebean.Ebean in play-internal-execution-context-1 
+Existing EbeanServer [default] is being replaced?
+
+2014-12-12 16:22:20,144 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-12-12 16:50:52,477 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:postgresql://localhost:5432/play
+
+2014-12-12 16:50:52,589 - [WARN] - from com.avaje.ebean.Ebean in play-internal-execution-context-1 
+Existing EbeanServer [default] is being replaced?
+
+2014-12-12 16:50:52,662 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-12-12 16:50:53,285 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:postgresql://localhost:5432/play
+
+2014-12-12 16:50:53,346 - [WARN] - from com.avaje.ebean.Ebean in play-internal-execution-context-1 
+Existing EbeanServer [default] is being replaced?
+
+2014-12-12 16:50:53,359 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-12-12 17:09:28,113 - [ERROR] - from application in New I/O worker #4 
+
+
+! @6kfckibp5 - Internal server error, for (POST) [/login] ->
+
+play.PlayExceptions$CompilationException: Compilation error[error: cannot find symbol]
+	at play.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27) ~[na:na]
+	at play.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$play$PlayReloader$$anon$$taskFailureHandler$1.apply(PlayReloader.scala:297) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$play$PlayReloader$$anon$$taskFailureHandler$1.apply(PlayReloader.scala:292) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.play$PlayReloader$$anon$$taskFailureHandler(PlayReloader.scala:292) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:325) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:325) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:325) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:107) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:105) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-12-12 17:12:59,828 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:postgresql://localhost:5432/play
+
+2014-12-12 17:13:00,092 - [WARN] - from com.avaje.ebean.Ebean in play-internal-execution-context-1 
+Existing EbeanServer [default] is being replaced?
+
+2014-12-12 17:13:00,188 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-12-12 17:19:14,399 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:postgresql://localhost:5432/play
+
+2014-12-12 17:19:14,664 - [WARN] - from com.avaje.ebean.Ebean in play-internal-execution-context-1 
+Existing EbeanServer [default] is being replaced?
+
+2014-12-12 17:19:14,697 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-12-12 17:37:34,529 - [ERROR] - from application in New I/O worker #4 
+
+
+! @6kfcoaah5 - Internal server error, for (GET) [/dashboard] ->
+
+play.PlayExceptions$CompilationException: Compilation error[error: illegal start of expression]
+	at play.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27) ~[na:na]
+	at play.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$play$PlayReloader$$anon$$taskFailureHandler$1.apply(PlayReloader.scala:297) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$play$PlayReloader$$anon$$taskFailureHandler$1.apply(PlayReloader.scala:292) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.play$PlayReloader$$anon$$taskFailureHandler(PlayReloader.scala:292) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:325) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:325) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:325) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:107) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:105) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-12-12 17:38:22,117 - [ERROR] - from application in New I/O worker #4 
+
+
+! @6kfcod31j - Internal server error, for (GET) [/dashboard] ->
+
+play.PlayExceptions$CompilationException: Compilation error[error: cannot find symbol]
+	at play.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27) ~[na:na]
+	at play.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$play$PlayReloader$$anon$$taskFailureHandler$1.apply(PlayReloader.scala:297) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$play$PlayReloader$$anon$$taskFailureHandler$1.apply(PlayReloader.scala:292) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.play$PlayReloader$$anon$$taskFailureHandler(PlayReloader.scala:292) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:325) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:325) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:325) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:107) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:105) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-12-12 17:39:20,732 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:postgresql://localhost:5432/play
+
+2014-12-12 17:39:21,003 - [WARN] - from com.avaje.ebean.Ebean in play-internal-execution-context-1 
+Existing EbeanServer [default] is being replaced?
+
+2014-12-12 17:39:21,058 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-12-12 17:39:28,285 - [ERROR] - from play in play-akka.actor.default-dispatcher-68 
+Cannot invoke the action, eventually got an error: java.lang.NullPointerException
+
+2014-12-12 17:39:28,526 - [ERROR] - from application in play-akka.actor.default-dispatcher-68 
+
+
+! @6kfcogn7c - Internal server error, for (GET) [/settings/email] ->
+
+play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
+	at play.api.Application$class.handleError(Application.scala:296) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.DefaultApplication.handleError(Application.scala:402) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:320) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:316) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$overflowingExecutionContext$.execute(Execution.scala:73) [play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.link(Promise.scala:304) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.linkRootOf(Promise.scala:289) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:253) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$overflowingExecutionContext$.execute(Execution.scala:73) [play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41) [akka-actor_2.10-2.3.3.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393) [akka-actor_2.10-2.3.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
+Caused by: java.lang.NullPointerException: null
+	at controllers.account.settings.Email.index(Email.java:46) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$9$$anonfun$apply$9.apply(routes_routing.scala:242) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$9$$anonfun$apply$9.apply(routes_routing.scala:242) ~[classes/:na]
+	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.mvc.Security$AuthenticatedAction.call(Security.java:44) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:40) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:32) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.Future$.apply(Future.scala:31) ~[scala-library.jar:na]
+	at scala.concurrent.Future$.apply(Future.scala:485) ~[scala-library.jar:na]
+	at play.core.j.JavaAction$class.apply(JavaAction.scala:82) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.apply(Router.scala:252) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:129) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:128) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:128) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:121) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
+	... 6 common frames omitted
+
+2014-12-12 17:39:53,183 - [ERROR] - from play in play-akka.actor.default-dispatcher-67 
+Cannot invoke the action, eventually got an error: java.lang.NullPointerException
+
+2014-12-12 17:39:53,185 - [ERROR] - from application in play-akka.actor.default-dispatcher-67 
+
+
+! @6kfcoi7kd - Internal server error, for (GET) [/settings/email] ->
+
+play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
+	at play.api.Application$class.handleError(Application.scala:296) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.DefaultApplication.handleError(Application.scala:402) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:320) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:316) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$overflowingExecutionContext$.execute(Execution.scala:73) [play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.link(Promise.scala:304) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.linkRootOf(Promise.scala:289) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:253) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$overflowingExecutionContext$.execute(Execution.scala:73) [play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41) [akka-actor_2.10-2.3.3.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393) [akka-actor_2.10-2.3.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
+Caused by: java.lang.NullPointerException: null
+	at controllers.account.settings.Email.index(Email.java:46) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$9$$anonfun$apply$9.apply(routes_routing.scala:242) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$9$$anonfun$apply$9.apply(routes_routing.scala:242) ~[classes/:na]
+	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.mvc.Security$AuthenticatedAction.call(Security.java:44) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:40) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:32) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.Future$.apply(Future.scala:31) ~[scala-library.jar:na]
+	at scala.concurrent.Future$.apply(Future.scala:485) ~[scala-library.jar:na]
+	at play.core.j.JavaAction$class.apply(JavaAction.scala:82) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.apply(Router.scala:252) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:129) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:128) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:128) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:121) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
+	... 6 common frames omitted
+
+2014-12-12 17:40:57,170 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6kfcoloba - Internal server error, for (GET) [/settings/email] ->
+
+play.PlayExceptions$CompilationException: Compilation error[error: cannot find symbol]
+	at play.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27) ~[na:na]
+	at play.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$play$PlayReloader$$anon$$taskFailureHandler$1.apply(PlayReloader.scala:297) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$play$PlayReloader$$anon$$taskFailureHandler$1.apply(PlayReloader.scala:292) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.play$PlayReloader$$anon$$taskFailureHandler(PlayReloader.scala:292) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:325) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:325) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:325) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:107) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:105) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-12-12 17:41:28,250 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:postgresql://localhost:5432/play
+
+2014-12-12 17:41:28,299 - [WARN] - from com.avaje.ebean.Ebean in play-internal-execution-context-1 
+Existing EbeanServer [default] is being replaced?
+
+2014-12-12 17:41:28,310 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-12-12 17:41:28,325 - [ERROR] - from play in New I/O worker #1 
+Cannot invoke the action, eventually got an error: java.lang.NullPointerException
+
+2014-12-12 17:41:28,328 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6kfconidl - Internal server error, for (GET) [/settings/email] ->
+
+play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
+	at play.api.Application$class.handleError(Application.scala:296) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.DefaultApplication.handleError(Application.scala:402) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:320) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:316) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.scala$concurrent$impl$Promise$DefaultPromise$$dispatchOrAddCallback(Promise.scala:280) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.onComplete(Promise.scala:270) [scala-library.jar:na]
+	at scala.concurrent.Future$class.recoverWith(Future.scala:343) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.recoverWith(Promise.scala:153) [scala-library.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.play$core$server$netty$PlayDefaultUpstreamHandler$$handleAction$1(PlayDefaultUpstreamHandler.scala:316) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.messageReceived(PlayDefaultUpstreamHandler.scala:209) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:791) [netty-3.9.1.Final.jar:na]
+	at com.typesafe.netty.http.pipelining.HttpPipeliningHandler.messageReceived(HttpPipeliningHandler.java:62) [netty-http-pipelining-1.1.2.jar:na]
+	at org.jboss.netty.channel.SimpleChannelHandler.handleUpstream(SimpleChannelHandler.java:88) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:791) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:108) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:791) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:459) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:536) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:435) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:559) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:88) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:318) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108) [netty-3.9.1.Final.jar:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty-3.9.1.Final.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_65]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_65]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_65]
+Caused by: java.lang.NullPointerException: null
+	at controllers.account.settings.Email.index(Email.java:46) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$9$$anonfun$apply$9.apply(routes_routing.scala:242) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$9$$anonfun$apply$9.apply(routes_routing.scala:242) ~[na:na]
+	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.mvc.Security$AuthenticatedAction.call(Security.java:44) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:40) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:32) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.Future$.apply(Future.scala:31) ~[scala-library.jar:na]
+	at scala.concurrent.Future$.apply(Future.scala:485) ~[scala-library.jar:na]
+	at play.core.j.JavaAction$class.apply(JavaAction.scala:82) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.apply(Router.scala:252) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:129) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:128) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:128) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:121) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41) ~[akka-actor_2.10-2.3.3.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393) ~[akka-actor_2.10-2.3.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-12-12 17:43:12,380 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:postgresql://localhost:5432/play
+
+2014-12-12 17:43:12,437 - [WARN] - from com.avaje.ebean.Ebean in play-internal-execution-context-1 
+Existing EbeanServer [default] is being replaced?
+
+2014-12-12 17:43:12,447 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-12-12 17:43:21,669 - [ERROR] - from play in play-akka.actor.default-dispatcher-77 
+Cannot invoke the action, eventually got an error: java.lang.NullPointerException
+
+2014-12-12 17:43:21,672 - [ERROR] - from application in play-akka.actor.default-dispatcher-77 
+
+
+! @6kfcp4455 - Internal server error, for (POST) [/settings/email] ->
+
+play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
+	at play.api.Application$class.handleError(Application.scala:296) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.DefaultApplication.handleError(Application.scala:402) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:320) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:316) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$overflowingExecutionContext$.execute(Execution.scala:73) [play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.link(Promise.scala:304) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.linkRootOf(Promise.scala:289) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:253) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$overflowingExecutionContext$.execute(Execution.scala:73) [play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41) [akka-actor_2.10-2.3.3.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393) [akka-actor_2.10-2.3.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
+Caused by: java.lang.NullPointerException: null
+	at models.Token.getNewToken(Token.java:101) ~[classes/:na]
+	at models.Token.sendMail(Token.java:139) ~[classes/:na]
+	at models.Token.sendMailChangeMail(Token.java:126) ~[classes/:na]
+	at controllers.account.settings.Email.runEmail(Email.java:66) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$10$$anonfun$apply$10.apply(routes_routing.scala:250) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$10$$anonfun$apply$10.apply(routes_routing.scala:250) ~[classes/:na]
+	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.mvc.Security$AuthenticatedAction.call(Security.java:44) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:40) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:32) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.Future$.apply(Future.scala:31) ~[scala-library.jar:na]
+	at scala.concurrent.Future$.apply(Future.scala:485) ~[scala-library.jar:na]
+	at play.core.j.JavaAction$class.apply(JavaAction.scala:82) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.apply(Router.scala:252) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:129) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:128) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:128) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:121) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
+	... 6 common frames omitted
+
+2014-12-12 17:47:09,762 - [WARN] - from play in play-akka.actor.default-dispatcher-76 
+You are using status code '400' with flashing, which should only be used with a redirect status!
+
+2014-12-12 17:47:15,840 - [ERROR] - from play in play-akka.actor.default-dispatcher-83 
+Cannot invoke the action, eventually got an error: java.lang.NullPointerException
+
+2014-12-12 17:47:15,844 - [ERROR] - from application in play-akka.actor.default-dispatcher-83 
+
+
+! @6kfcphcfl - Internal server error, for (POST) [/settings/email] ->
+
+play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
+	at play.api.Application$class.handleError(Application.scala:296) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.DefaultApplication.handleError(Application.scala:402) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:320) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:316) [play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$overflowingExecutionContext$.execute(Execution.scala:73) [play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.link(Promise.scala:304) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.linkRootOf(Promise.scala:289) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:253) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$overflowingExecutionContext$.execute(Execution.scala:73) [play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41) [akka-actor_2.10-2.3.3.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393) [akka-actor_2.10-2.3.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
+Caused by: java.lang.NullPointerException: null
+	at models.Token.getNewToken(Token.java:101) ~[classes/:na]
+	at models.Token.sendMail(Token.java:139) ~[classes/:na]
+	at models.Token.sendMailChangeMail(Token.java:126) ~[classes/:na]
+	at controllers.account.settings.Email.runEmail(Email.java:66) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$10$$anonfun$apply$10.apply(routes_routing.scala:250) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$10$$anonfun$apply$10.apply(routes_routing.scala:250) ~[classes/:na]
+	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.mvc.Security$AuthenticatedAction.call(Security.java:44) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:40) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:32) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.Future$.apply(Future.scala:31) ~[scala-library.jar:na]
+	at scala.concurrent.Future$.apply(Future.scala:485) ~[scala-library.jar:na]
+	at play.core.j.JavaAction$class.apply(JavaAction.scala:82) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.apply(Router.scala:252) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:129) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:128) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:128) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:121) ~[play_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.10-2.3.0-RC2.jar:2.3.0-RC2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
+	... 6 common frames omitted
+
